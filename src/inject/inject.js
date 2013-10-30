@@ -3,6 +3,8 @@ chrome.extension.sendMessage({}, function(response) {
     clearAnnoyances()
 });
 function clearAnnoyances() {
+  if(document.getElementsByClassName("permalink-inner").length !== 0) return;
+
   var promotedTweets = document.getElementsByClassName('promoted-tweet');
   for(var i in promotedTweets) {
     if(promotedTweets[i].remove)
