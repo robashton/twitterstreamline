@@ -3,7 +3,7 @@
   "version": "0.0.5",
   "manifest_version": 2,
   "description": "Hide inline images and sponsored tweets in Twitter Web",
-  "homepage_url": "http://codeofrob.com",
+  "homepage_url": "https://github.com/delphic/twitterstreamline",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",

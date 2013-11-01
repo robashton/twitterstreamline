@@ -1,18 +1,13 @@
 chrome.extension.sendMessage({}, function(response) {
-    setInterval(clearAnnoyances, 500);
-    clearAnnoyances()
+	if(document.getElementsByClassName("permalink-inner").length !== 0) return;
+	var css = ".promoted-tweet { display: none; } .cards-media-container { display: none; } .open .cards-media-container { display: block; }", 
+		head = document.getElementsByTagName('head')[0], 
+		style = document.createElement('style');
+	style.type = 'text/css';
+	if (style.styleSheet) {
+		style.styleSheet.cssText = css;
+	} else {
+		style.appendChild(document.createTextNode(css));
+	}	
+	head.appendChild(style);
 });
-function clearAnnoyances() {
-  if(document.getElementsByClassName("permalink-inner").length !== 0) return;
-
-  var promotedTweets = document.getElementsByClassName('promoted-tweet');
-  for(var i in promotedTweets) {
-    if(promotedTweets[i].remove)
-      promotedTweets[i].remove()
-  }
-  var embededMedia = document.getElementsByClassName('cards-media-container')
-  for(var i in embededMedia) {
-    if(embededMedia[i].remove)
-      embededMedia[i].remove()
-  }
-}
